@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		5CE722161B08628300D3DA0D /* MobileTrackSDKUniversal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5CE722171B08628300D3DA0D /* Build configuration list for PBXAggregateTarget "MobileTrackSDKUniversal" */;
+			buildPhases = (
+				5CE7221A1B0862FC00D3DA0D /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = MobileTrackSDKUniversal;
+			productName = MobileTrackSDKUniversal;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		5CE722001B085FFC00D3DA0D /* MobileTrackSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE721FF1B085FFC00D3DA0D /* MobileTrackSDK.h */; };
 		5CE722021B085FFC00D3DA0D /* MobileTrackSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE722011B085FFC00D3DA0D /* MobileTrackSDK.m */; };
@@ -158,6 +172,9 @@
 					5CE722061B085FFC00D3DA0D = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
+					5CE722161B08628300D3DA0D = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 5CE721F71B085FFC00D3DA0D /* Build configuration list for PBXProject "MobileTrackSDK" */;
@@ -174,6 +191,7 @@
 			targets = (
 				5CE721FB1B085FFC00D3DA0D /* MobileTrackSDK */,
 				5CE722061B085FFC00D3DA0D /* MobileTrackSDKTests */,
+				5CE722161B08628300D3DA0D /* MobileTrackSDKUniversal */,
 			);
 		};
 /* End PBXProject section */
@@ -187,6 +205,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5CE7221A1B0862FC00D3DA0D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target MobileTrackSDK ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target MobileTrackSDK -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/lib${PROJECT_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PROJECT_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${PROJECT_NAME}.a\"\n\n# Last touch. copy the header files. Just for convenience\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/include\" \"${UNIVERSAL_OUTPUTFOLDER}/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5CE721F81B085FFC00D3DA0D /* Sources */ = {
@@ -343,6 +377,20 @@
 			};
 			name = Release;
 		};
+		5CE722181B08628300D3DA0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5CE722191B08628300D3DA0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -368,6 +416,14 @@
 			buildConfigurations = (
 				5CE722141B085FFC00D3DA0D /* Debug */,
 				5CE722151B085FFC00D3DA0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5CE722171B08628300D3DA0D /* Build configuration list for PBXAggregateTarget "MobileTrackSDKUniversal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE722181B08628300D3DA0D /* Debug */,
+				5CE722191B08628300D3DA0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
