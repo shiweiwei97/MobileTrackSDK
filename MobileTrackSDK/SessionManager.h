@@ -35,5 +35,6 @@
 + (id)sharedManager;
 
 - (void) save;
+- (void) restartSession;
 
 @end

@@ -21,6 +21,12 @@
     [sessionManager save];
 }
 
++ (void)handleEnteredForegroud:(NSNotification *) notification {
+    NSLog(@"handleEnteredForegroud called");
+    SessionManager *sessionManager = [SessionManager sharedManager];
+    [sessionManager restartSession];
+}
+
 #pragma mark basics
 
 + (void)setAppVersion:(NSString *)appVersion {
@@ -37,6 +43,14 @@
                                              selector: @selector(handleEnteredBackground:)
                                                  name: UIApplicationDidEnterBackgroundNotification
                                                object: nil];
+
+    // detect app entering foreground
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(handleEnteredForegroud:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object: nil];
+    
+    // TODO: try upload previous session data
 }
 
 + (void)logPageView:(NSString *)pageName seconds:(int)seconds {

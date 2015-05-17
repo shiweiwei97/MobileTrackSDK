@@ -25,12 +25,13 @@
 
 #pragma mark Singleton Methods
 
+static SessionManager *sharedSessionManager = nil;
+
 + (id)sharedManager {
-    static SessionManager *sharedSessionManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedSessionManager = [[self alloc] init];
-    });
+    @synchronized(self) {
+        if (sharedSessionManager == nil)
+            sharedSessionManager = [[self alloc] init];
+    }
     return sharedSessionManager;
 }
 
@@ -50,9 +51,16 @@
     return self;
 }
 
-- (void)dealloc {
-    // Should never be called, but just here for clarity really.
+- (void) restartSession {
+    @synchronized(self) {
+        if (sharedSessionManager != nil) {
+            sessionId = [[NSUUID UUID] UUIDString];
+            startTime = [NSDate date];
+        }
+    }
 }
+
+#pragma mark JSON Methods
 
 - (NSDictionary *)toJSONObj {
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -64,8 +72,8 @@
                           deviceModel, @"deviceModel",
                           OSVersion, @"OSVersion",
                           SDKVersion, @"SDKVersion",
-                          [NSNumber numberWithLong:[startTime timeIntervalSince1970]], @"startTime",
-                          [NSNumber numberWithLong:[endTime timeIntervalSince1970]], @"endTime",
+                          [NSNumber numberWithLong:[startTime timeIntervalSince1970] * 1000], @"startTime",
+                          [NSNumber numberWithLong:[endTime timeIntervalSince1970] * 1000], @"endTime",
                           nil];
     
     return dict;
@@ -79,6 +87,15 @@
     if (json != nil && error == nil) {
         NSString *jsonString = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
         NSLog(@"JSON: %@", jsonString);
+
+        // save file
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *fileName = [NSString stringWithFormat:@"%@/session-%@.json", documentsDirectory, [self sessionId]];
+        [jsonString writeToFile:fileName
+                     atomically:YES
+                       encoding:NSStringEncodingConversionAllowLossy
+                          error:&error];
     }
 }
 
