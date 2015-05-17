@@ -24,6 +24,7 @@
 		5CE722001B085FFC00D3DA0D /* MobileTrackSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE721FF1B085FFC00D3DA0D /* MobileTrackSDK.h */; };
 		5CE722021B085FFC00D3DA0D /* MobileTrackSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE722011B085FFC00D3DA0D /* MobileTrackSDK.m */; };
 		5CE722081B085FFC00D3DA0D /* libMobileTrackSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE721FC1B085FFC00D3DA0D /* libMobileTrackSDK.a */; };
+		5CE722971B089B4B00D3DA0D /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE722961B089B4B00D3DA0D /* SessionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		5CE722011B085FFC00D3DA0D /* MobileTrackSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileTrackSDK.m; sourceTree = "<group>"; };
 		5CE722071B085FFC00D3DA0D /* MobileTrackSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileTrackSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CE7220D1B085FFC00D3DA0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CE722951B089B4B00D3DA0D /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SessionManager.h; path = MobileTrackSDK/SessionManager.h; sourceTree = "<group>"; };
+		5CE722961B089B4B00D3DA0D /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SessionManager.m; path = MobileTrackSDK/SessionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,7 @@
 		5CE721F31B085FFC00D3DA0D = {
 			isa = PBXGroup;
 			children = (
+				5CE722981B089B5C00D3DA0D /* Session */,
 				5CE721FE1B085FFC00D3DA0D /* MobileTrackSDK */,
 				5CE7220B1B085FFC00D3DA0D /* MobileTrackSDKTests */,
 				5CE721FD1B085FFC00D3DA0D /* Products */,
@@ -117,6 +121,15 @@
 				5CE7220D1B085FFC00D3DA0D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5CE722981B089B5C00D3DA0D /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				5CE722951B089B4B00D3DA0D /* SessionManager.h */,
+				5CE722961B089B4B00D3DA0D /* SessionManager.m */,
+			);
+			name = Session;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CE722971B089B4B00D3DA0D /* SessionManager.m in Sources */,
 				5CE722021B085FFC00D3DA0D /* MobileTrackSDK.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

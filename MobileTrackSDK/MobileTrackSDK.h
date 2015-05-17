@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define XcodeAppVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+#define MobileTrackSDKVersion @"1.0.0"
+
 @interface MobileTrackSDK : NSObject
 
 #pragma mark basics
