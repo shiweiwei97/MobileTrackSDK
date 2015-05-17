@@ -1,0 +1,377 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5CE722001B085FFC00D3DA0D /* MobileTrackSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE721FF1B085FFC00D3DA0D /* MobileTrackSDK.h */; };
+		5CE722021B085FFC00D3DA0D /* MobileTrackSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE722011B085FFC00D3DA0D /* MobileTrackSDK.m */; };
+		5CE722081B085FFC00D3DA0D /* libMobileTrackSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE721FC1B085FFC00D3DA0D /* libMobileTrackSDK.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5CE722091B085FFC00D3DA0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CE721F41B085FFC00D3DA0D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CE721FB1B085FFC00D3DA0D;
+			remoteInfo = MobileTrackSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5CE721FA1B085FFC00D3DA0D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				5CE722001B085FFC00D3DA0D /* MobileTrackSDK.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5CE721FC1B085FFC00D3DA0D /* libMobileTrackSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobileTrackSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE721FF1B085FFC00D3DA0D /* MobileTrackSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileTrackSDK.h; sourceTree = "<group>"; };
+		5CE722011B085FFC00D3DA0D /* MobileTrackSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileTrackSDK.m; sourceTree = "<group>"; };
+		5CE722071B085FFC00D3DA0D /* MobileTrackSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileTrackSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE7220D1B085FFC00D3DA0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5CE721F91B085FFC00D3DA0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE722041B085FFC00D3DA0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE722081B085FFC00D3DA0D /* libMobileTrackSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5CE721F31B085FFC00D3DA0D = {
+			isa = PBXGroup;
+			children = (
+				5CE721FE1B085FFC00D3DA0D /* MobileTrackSDK */,
+				5CE7220B1B085FFC00D3DA0D /* MobileTrackSDKTests */,
+				5CE721FD1B085FFC00D3DA0D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5CE721FD1B085FFC00D3DA0D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CE721FC1B085FFC00D3DA0D /* libMobileTrackSDK.a */,
+				5CE722071B085FFC00D3DA0D /* MobileTrackSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5CE721FE1B085FFC00D3DA0D /* MobileTrackSDK */ = {
+			isa = PBXGroup;
+			children = (
+				5CE721FF1B085FFC00D3DA0D /* MobileTrackSDK.h */,
+				5CE722011B085FFC00D3DA0D /* MobileTrackSDK.m */,
+			);
+			path = MobileTrackSDK;
+			sourceTree = "<group>";
+		};
+		5CE7220B1B085FFC00D3DA0D /* MobileTrackSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				5CE7220C1B085FFC00D3DA0D /* Supporting Files */,
+			);
+			path = MobileTrackSDKTests;
+			sourceTree = "<group>";
+		};
+		5CE7220C1B085FFC00D3DA0D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5CE7220D1B085FFC00D3DA0D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5CE721FB1B085FFC00D3DA0D /* MobileTrackSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE722101B085FFC00D3DA0D /* Build configuration list for PBXNativeTarget "MobileTrackSDK" */;
+			buildPhases = (
+				5CE721F81B085FFC00D3DA0D /* Sources */,
+				5CE721F91B085FFC00D3DA0D /* Frameworks */,
+				5CE721FA1B085FFC00D3DA0D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobileTrackSDK;
+			productName = MobileTrackSDK;
+			productReference = 5CE721FC1B085FFC00D3DA0D /* libMobileTrackSDK.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5CE722061B085FFC00D3DA0D /* MobileTrackSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE722131B085FFC00D3DA0D /* Build configuration list for PBXNativeTarget "MobileTrackSDKTests" */;
+			buildPhases = (
+				5CE722031B085FFC00D3DA0D /* Sources */,
+				5CE722041B085FFC00D3DA0D /* Frameworks */,
+				5CE722051B085FFC00D3DA0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CE7220A1B085FFC00D3DA0D /* PBXTargetDependency */,
+			);
+			name = MobileTrackSDKTests;
+			productName = MobileTrackSDKTests;
+			productReference = 5CE722071B085FFC00D3DA0D /* MobileTrackSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5CE721F41B085FFC00D3DA0D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = mobiletrack;
+				TargetAttributes = {
+					5CE721FB1B085FFC00D3DA0D = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					5CE722061B085FFC00D3DA0D = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 5CE721F71B085FFC00D3DA0D /* Build configuration list for PBXProject "MobileTrackSDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5CE721F31B085FFC00D3DA0D;
+			productRefGroup = 5CE721FD1B085FFC00D3DA0D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CE721FB1B085FFC00D3DA0D /* MobileTrackSDK */,
+				5CE722061B085FFC00D3DA0D /* MobileTrackSDKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5CE722051B085FFC00D3DA0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CE721F81B085FFC00D3DA0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE722021B085FFC00D3DA0D /* MobileTrackSDK.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE722031B085FFC00D3DA0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5CE7220A1B085FFC00D3DA0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CE721FB1B085FFC00D3DA0D /* MobileTrackSDK */;
+			targetProxy = 5CE722091B085FFC00D3DA0D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5CE7220E1B085FFC00D3DA0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5CE7220F1B085FFC00D3DA0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5CE722111B085FFC00D3DA0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5CE722121B085FFC00D3DA0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5CE722141B085FFC00D3DA0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MobileTrackSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5CE722151B085FFC00D3DA0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MobileTrackSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CE721F71B085FFC00D3DA0D /* Build configuration list for PBXProject "MobileTrackSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE7220E1B085FFC00D3DA0D /* Debug */,
+				5CE7220F1B085FFC00D3DA0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CE722101B085FFC00D3DA0D /* Build configuration list for PBXNativeTarget "MobileTrackSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE722111B085FFC00D3DA0D /* Debug */,
+				5CE722121B085FFC00D3DA0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5CE722131B085FFC00D3DA0D /* Build configuration list for PBXNativeTarget "MobileTrackSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE722141B085FFC00D3DA0D /* Debug */,
+				5CE722151B085FFC00D3DA0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5CE721F41B085FFC00D3DA0D /* Project object */;
+}
