@@ -91,7 +91,7 @@ static SessionManager *sharedSessionManager = nil;
         // save file
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *fileName = [NSString stringWithFormat:@"%@/session-%@.json", documentsDirectory, [self sessionId]];
+        NSString *fileName = [NSString stringWithFormat:@"%@/%@%@.json", documentsDirectory, SesssionFilePrefix, [self sessionId]];
         [jsonString writeToFile:fileName
                      atomically:YES
                        encoding:NSStringEncodingConversionAllowLossy

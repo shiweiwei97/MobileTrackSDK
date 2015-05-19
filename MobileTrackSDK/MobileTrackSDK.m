@@ -19,12 +19,14 @@
     sessionManager.endTime = [NSDate date];
     
     [sessionManager save];
+    [self tryAsyncUpload];
 }
 
 + (void)handleEnteredForegroud:(NSNotification *) notification {
     NSLog(@"handleEnteredForegroud called");
     SessionManager *sessionManager = [SessionManager sharedManager];
     [sessionManager restartSession];
+    [self tryAsyncUpload];
 }
 
 #pragma mark basics
@@ -50,7 +52,68 @@
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object: nil];
     
-    // TODO: try upload previous session data
+    // try upload previous session data
+    [self tryAsyncUpload];
+}
+
++ (void)tryAsyncUpload {
+    // try upload previous session data
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        // start upload
+        [self uploadSessionData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"upload complete");
+        });
+    });
+}
+
++ (void)uploadSessionData {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSArray *filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:documentsDirectory
+                                                                                  error:nil];
+    
+    for (NSString *path in filePathsArray) {
+        
+        if (![path hasPrefix:SesssionFilePrefix]) continue;
+        
+        NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:path];
+        
+        // read file content
+        NSString* content = [NSString stringWithContentsOfFile:fullPath
+                                                      encoding:NSUTF8StringEncoding
+                                                         error:NULL];
+        // NSLog(@"file content: %@", content);
+        
+        // call data collector
+        NSURL *url = [NSURL URLWithString:[MobileTrackAPIServer stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        NSString *bodyStr = [NSString stringWithFormat:@"%@", content];
+        
+        [request setHTTPMethod:@"POST"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        NSData *bodyData = [NSData dataWithBytes:[bodyStr UTF8String]
+                                     length:[bodyStr length]];
+        [request setHTTPBody:bodyData];
+        
+        NSURLResponse* response;
+        NSError *error = nil;
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                     returningResponse:&response
+                                                                 error:&error];
+        NSString *responseString = [[NSString alloc] initWithData:responseData
+                                                         encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"response: %@", responseString);
+        
+        // remove file
+        BOOL removed = [[NSFileManager defaultManager] removeItemAtPath:fullPath
+                                                                  error:&error];
+        if (removed) {
+            NSLog(@"file %@ removed successfully", fullPath);
+        }
+    }
 }
 
 + (void)logPageView:(NSString *)pageName seconds:(int)seconds {

@@ -10,6 +10,8 @@
 
 #define XcodeAppVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 #define MobileTrackSDKVersion @"1.0.0"
+#define MobileTrackAPIServer @"http://mobiletrack.herokuapp.com/api/collector"
+#define SesssionFilePrefix @"session-"
 
 @interface MobileTrackSDK : NSObject
 
