@@ -31,6 +31,8 @@
 @property (nonatomic, retain) NSString *SDKVersion;
 @property (nonatomic, retain) NSDate *startTime;
 @property (nonatomic, retain) NSDate *endTime;
+@property (nonatomic, retain) NSMutableArray *pageViews;
+@property (nonatomic, retain) NSMutableArray *events;
 
 + (id)sharedManager;
 

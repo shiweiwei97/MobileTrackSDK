@@ -22,6 +22,8 @@
 @synthesize SDKVersion;
 @synthesize startTime;
 @synthesize endTime;
+@synthesize pageViews;
+@synthesize events;
 
 #pragma mark Singleton Methods
 
@@ -47,6 +49,8 @@ static SessionManager *sharedSessionManager = nil;
         SDKVersion = MobileTrackSDKVersion;
         startTime = [NSDate date];
         // endTime
+        pageViews = [NSMutableArray array];
+        events = [NSMutableArray array];
     }
     return self;
 }
@@ -56,6 +60,8 @@ static SessionManager *sharedSessionManager = nil;
         if (sharedSessionManager != nil) {
             sessionId = [[NSUUID UUID] UUIDString];
             startTime = [NSDate date];
+            pageViews = [NSMutableArray array];
+            events = [NSMutableArray array];
         }
     }
 }
@@ -74,8 +80,9 @@ static SessionManager *sharedSessionManager = nil;
                           SDKVersion, @"SDKVersion",
                           [NSNumber numberWithLong:[startTime timeIntervalSince1970] * 1000], @"startTime",
                           [NSNumber numberWithLong:[endTime timeIntervalSince1970] * 1000], @"endTime",
+                          pageViews, @"pageViews",
+                          events, @"events",
                           nil];
-    
     return dict;
 }
 

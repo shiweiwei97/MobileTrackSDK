@@ -12,6 +12,7 @@
 #define MobileTrackSDKVersion @"1.0.0"
 #define MobileTrackAPIServer @"http://mobiletrack.herokuapp.com/api/collector"
 #define SesssionFilePrefix @"session-"
+#define DefaultEventKey @"DefaultEventKey"
 
 @interface MobileTrackSDK : NSObject
 
