@@ -39,13 +39,13 @@ static SessionManager *sharedSessionManager = nil;
 
 - (id)init {
     if (self = [super init]) {
-        sessionId = [[NSUUID UUID] UUIDString];
+        sessionId = [[[NSUUID UUID] UUIDString] lowercaseString];
         // appKey
-        deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        deviceId = [[[[UIDevice currentDevice] identifierForVendor] UUIDString] lowercaseString];
         deviceName = [[UIDevice currentDevice] name];
         // appVersion
         deviceModel = [[UIDevice currentDevice] model];
-        OSVersion = [NSString stringWithFormat:@"%f", [[[UIDevice currentDevice] systemVersion] floatValue]];
+        OSVersion = [[UIDevice currentDevice] systemVersion];
         SDKVersion = MobileTrackSDKVersion;
         startTime = [NSDate date];
         // endTime
